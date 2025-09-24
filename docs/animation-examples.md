@@ -291,4 +291,4 @@ export function useScrollAnimation() {
 - GSAP DevTools (GSDevTools)
 \`\`\`
 
-```css file="" isHidden
+\`\`\`css file="" isHidden
