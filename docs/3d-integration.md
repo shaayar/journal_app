@@ -13,17 +13,17 @@ This guide covers integrating 3D elements into the Daily Journal application usi
 - **GSAP**: Timeline animations for 3D scenes
 
 ### Installation
-\`\`\`bash
+```bash
 npm install three @react-three/fiber @react-three/drei
 npm install --save-dev @types/three
-\`\`\`
+```
 
 ## 🎨 3D Design Patterns
 
 ### 1. Background 3D Scenes
 Create ambient 3D backgrounds that enhance the journaling experience without distracting from content.
 
-\`\`\`typescript
+```typescript
 // components/3d/JournalBackground.tsx
 import { Canvas } from '@react-three/fiber'
 import { Environment, Float, Sphere } from '@react-three/drei'
@@ -65,12 +65,12 @@ export const JournalBackground = () => {
     </div>
   )
 }
-\`\`\`
+```
 
 ### 2. Interactive 3D Elements
 Add interactive 3D components that respond to user actions and journal data.
 
-\`\`\`typescript
+```typescript
 // components/3d/MoodVisualization.tsx
 import { useRef, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
@@ -151,12 +151,12 @@ export const MoodVisualization = ({
     </div>
   )
 }
-\`\`\`
+```
 
 ### 3. Animated 3D Transitions
 Create smooth transitions between different 3D states based on user interactions.
 
-\`\`\`typescript
+```typescript
 // components/3d/AnimatedScene.tsx
 import { useRef, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
@@ -197,12 +197,12 @@ const AnimatedMesh = ({ targetPosition, targetScale, color }: {
     </mesh>
   )
 }
-\`\`\`
+```
 
 ## 🎭 3D Animation Patterns
 
 ### 1. Entrance Animations
-\`\`\`typescript
+```typescript
 const Scene3DEntrance = () => {
   const groupRef = useRef<THREE.Group>(null)
   
@@ -233,10 +233,10 @@ const Scene3DEntrance = () => {
     </group>
   )
 }
-\`\`\`
+```
 
 ### 2. Continuous Animations
-\`\`\`typescript
+```typescript
 const ContinuousRotation = ({ children }: { children: React.ReactNode }) => {
   const groupRef = useRef<THREE.Group>(null)
   
@@ -249,10 +249,10 @@ const ContinuousRotation = ({ children }: { children: React.ReactNode }) => {
   
   return <group ref={groupRef}>{children}</group>
 }
-\`\`\`
+```
 
 ### 3. Interactive Animations
-\`\`\`typescript
+```typescript
 const InteractiveMesh = () => {
   const meshRef = useRef<THREE.Mesh>(null)
   const [hovered, setHovered] = useState(false)
@@ -278,7 +278,7 @@ const InteractiveMesh = () => {
     </mesh>
   )
 }
-\`\`\`
+```
 
 ## 🎨 Foreground vs Background Integration
 
@@ -290,7 +290,7 @@ const InteractiveMesh = () => {
 - Non-interactive
 - Fixed positioning
 
-\`\`\`typescript
+```typescript
 // Background implementation
 <div className="fixed inset-0 -z-10 pointer-events-none">
   <Canvas>
@@ -299,7 +299,7 @@ const InteractiveMesh = () => {
     {/* Subtle floating elements */}
   </Canvas>
 </div>
-\`\`\`
+```
 
 ### Foreground 3D Elements
 **Purpose**: Interactive features and data visualization
@@ -309,7 +309,7 @@ const InteractiveMesh = () => {
 - Interactive capabilities
 - Integrated with UI components
 
-\`\`\`typescript
+```typescript
 // Foreground implementation
 <Card className="glass-card relative overflow-hidden">
   <div className="absolute inset-0">
@@ -321,12 +321,12 @@ const InteractiveMesh = () => {
     {/* UI content overlaid on 3D */}
   </CardContent>
 </Card>
-\`\`\`
+```
 
 ## 🔧 Performance Optimization
 
 ### 1. Level of Detail (LOD)
-\`\`\`typescript
+```typescript
 import { Lod } from '@react-three/drei'
 
 const OptimizedMesh = () => (
@@ -350,10 +350,10 @@ const OptimizedMesh = () => (
     </mesh>
   </Lod>
 )
-\`\`\`
+```
 
 ### 2. Instancing for Multiple Objects
-\`\`\`typescript
+```typescript
 import { Instances, Instance } from '@react-three/drei'
 
 const ManyOrbs = ({ count = 100 }) => (
@@ -374,10 +374,10 @@ const ManyOrbs = ({ count = 100 }) => (
     ))}
   </Instances>
 )
-\`\`\`
+```
 
 ### 3. Conditional Rendering
-\`\`\`typescript
+```typescript
 const ConditionalScene = ({ showComplex }: { showComplex: boolean }) => {
   return (
     <Canvas>
@@ -389,12 +389,12 @@ const ConditionalScene = ({ showComplex }: { showComplex: boolean }) => {
     </Canvas>
   )
 }
-\`\`\`
+```
 
 ## 📱 Responsive 3D Design
 
 ### Mobile Optimization
-\`\`\`typescript
+```typescript
 const ResponsiveCanvas = () => {
   const isMobile = useMediaQuery('(max-width: 768px)')
   
@@ -410,10 +410,10 @@ const ResponsiveCanvas = () => {
     </Canvas>
   )
 }
-\`\`\`
+```
 
 ### Touch Interactions
-\`\`\`typescript
+```typescript
 const TouchFriendly3D = () => {
   const [touched, setTouched] = useState(false)
   
@@ -428,12 +428,12 @@ const TouchFriendly3D = () => {
     </mesh>
   )
 }
-\`\`\`
+```
 
 ## 🎯 Integration Examples
 
 ### 1. Mood Ring Visualization
-\`\`\`typescript
+```typescript
 const MoodRing = ({ mood }: { mood: number }) => {
   const ringRef = useRef<THREE.Mesh>(null)
   
@@ -453,10 +453,10 @@ const MoodRing = ({ mood }: { mood: number }) => {
     </mesh>
   )
 }
-\`\`\`
+```
 
 ### 2. Progress Visualization
-\`\`\`typescript
+```typescript
 const ProgressSphere = ({ progress }: { progress: number }) => {
   return (
     <mesh>
@@ -470,12 +470,12 @@ const ProgressSphere = ({ progress }: { progress: number }) => {
     </mesh>
   )
 }
-\`\`\`
+```
 
 ## 🚀 Advanced Techniques
 
 ### Shader Materials
-\`\`\`typescript
+```typescript
 import { shaderMaterial } from '@react-three/drei'
 import { extend } from '@react-three/fiber'
 
@@ -503,10 +503,10 @@ const WaveShaderMaterial = shaderMaterial(
 )
 
 extend({ WaveShaderMaterial })
-\`\`\`
+```
 
 ### Post-Processing Effects
-\`\`\`typescript
+```typescript
 import { EffectComposer, Bloom, ChromaticAberration } from '@react-three/postprocessing'
 
 const PostProcessedScene = () => (
@@ -518,6 +518,6 @@ const PostProcessedScene = () => (
     </EffectComposer>
   </Canvas>
 )
-\`\`\`
+```
 
 This comprehensive 3D integration guide provides the foundation for adding immersive 3D elements to the journal application while maintaining performance and usability across all devices.

@@ -19,18 +19,18 @@ This guide provides a systematic approach to planning, designing, and implementi
 - **Actions Available**: What can users do on this page?
 
 #### 1.3 User Stories
-\`\`\`
+```
 As a [user type], 
 I want to [action/goal], 
 So that [benefit/outcome].
-\`\`\`
+```
 
 Example:
-\`\`\`
+```
 As a daily journal user,
 I want to rate my day across multiple dimensions,
 So that I can track my emotional and productivity patterns over time.
-\`\`\`
+```
 
 ### Phase 2: Information Architecture
 
@@ -53,7 +53,7 @@ Organize content by importance and user flow:
    - Settings and preferences
 
 #### 2.2 Section Planning Template
-\`\`\`markdown
+```markdown
 ## Section: [Section Name]
 **Purpose**: [Why this section exists]
 **Priority**: [High/Medium/Low]
@@ -71,12 +71,12 @@ Organize content by importance and user flow:
 **Interactions**:
 - [ ] Interaction 1
 - [ ] Interaction 2
-\`\`\`
+```
 
 ### Phase 3: Layout Design
 
 #### 3.1 Grid System Planning
-\`\`\`css
+```css
 /* Mobile First Approach */
 .page-container {
   @apply max-w-4xl mx-auto space-y-8;
@@ -85,7 +85,7 @@ Organize content by importance and user flow:
 .section-grid {
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
 }
-\`\`\`
+```
 
 #### 3.2 Responsive Breakpoints
 - **Mobile** (320px - 767px): Single column, stacked layout
@@ -110,7 +110,7 @@ Organize content by importance and user flow:
 #### 4.1 Component Breakdown
 For each page section, identify:
 
-\`\`\`typescript
+```typescript
 interface SectionComponent {
   name: string
   purpose: string
@@ -122,10 +122,10 @@ interface SectionComponent {
   children?: ComponentType[]
   animations: AnimationType[]
 }
-\`\`\`
+```
 
 #### 4.2 State Management Planning
-\`\`\`typescript
+```typescript
 // Page-level state
 interface PageState {
   // Form data
@@ -144,12 +144,12 @@ interface PageState {
 const updateFormData = (field: string, value: any) => {
   setFormData(prev => ({ ...prev, [field]: value }))
 }
-\`\`\`
+```
 
 ### Phase 5: Animation Planning
 
 #### 5.1 Animation Strategy
-\`\`\`typescript
+```typescript
 // Page entrance
 const pageVariants = {
   initial: { opacity: 0 },
@@ -172,7 +172,7 @@ const interactiveVariants = {
   hover: { scale: 1.05, y: -2 },
   tap: { scale: 0.95 }
 }
-\`\`\`
+```
 
 #### 5.2 Animation Timeline
 1. **Page Load** (0-1s): Page fade-in, header animation
@@ -184,7 +184,7 @@ const interactiveVariants = {
 ### Color Theme Assignment
 Each page section should have a consistent color theme:
 
-\`\`\`typescript
+```typescript
 const sectionThemes = {
   productivity: {
     primary: 'blue',
@@ -200,10 +200,10 @@ const sectionThemes = {
   },
   // ... other themes
 }
-\`\`\`
+```
 
 ### Typography Consistency
-\`\`\`css
+```css
 .section-title {
   @apply text-xl font-semibold mb-4 flex items-center gap-2;
 }
@@ -215,7 +215,7 @@ const sectionThemes = {
 .helper-text {
   @apply text-xs text-muted-foreground;
 }
-\`\`\`
+```
 
 ## 📱 Mobile-First Planning
 
@@ -226,7 +226,7 @@ const sectionThemes = {
 4. **Input Optimization**: Appropriate keyboard types, validation
 
 ### Progressive Enhancement
-\`\`\`typescript
+```typescript
 // Mobile base styles
 const mobileStyles = "p-4 space-y-4"
 
@@ -237,12 +237,12 @@ const tabletStyles = "md:p-6 md:space-y-6 md:grid md:grid-cols-2"
 const desktopStyles = "lg:p-8 lg:space-y-8 lg:grid-cols-3"
 
 const responsiveStyles = `${mobileStyles} ${tabletStyles} ${desktopStyles}`
-\`\`\`
+```
 
 ## 🔄 Data Flow Planning
 
 ### Input → Processing → Storage → Display
-\`\`\`typescript
+```typescript
 // 1. Input Collection
 const handleInputChange = (field: string, value: any) => {
   // Validation
@@ -279,7 +279,7 @@ const displayData = (data: StoredData) => {
     </motion.div>
   )
 }
-\`\`\`
+```
 
 ## ✅ Page Implementation Checklist
 

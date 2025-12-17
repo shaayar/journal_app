@@ -8,12 +8,12 @@ This document provides practical examples of implementing advanced animations in
 ### 1. AnimatedBackground
 Creates floating particles with GSAP animations for ambient background effects.
 
-\`\`\`tsx
+```tsx
 import { AnimatedBackground } from '@/components/animations/AnimatedBackground'
 
 // Usage in layout or page
 <AnimatedBackground />
-\`\`\`
+```
 
 **Features:**
 - 20 floating particles with random properties
@@ -24,7 +24,7 @@ import { AnimatedBackground } from '@/components/animations/AnimatedBackground'
 ### 2. MorphingCard
 Enhanced card component with 3D hover effects and gradient borders.
 
-\`\`\`tsx
+```tsx
 import { MorphingCard } from '@/components/animations/MorphingCard'
 
 <MorphingCard 
@@ -34,7 +34,7 @@ import { MorphingCard } from '@/components/animations/MorphingCard'
 >
   <CardContent>Your content here</CardContent>
 </MorphingCard>
-\`\`\`
+```
 
 **Features:**
 - 3D perspective transforms
@@ -45,7 +45,7 @@ import { MorphingCard } from '@/components/animations/MorphingCard'
 ### 3. TextReveal
 Letter-by-letter text animation with 3D rotation effects.
 
-\`\`\`tsx
+```tsx
 import { TextReveal } from '@/components/animations/TextReveal'
 
 <TextReveal 
@@ -54,7 +54,7 @@ import { TextReveal } from '@/components/animations/TextReveal'
   duration={0.08}
   className="text-4xl font-bold"
 />
-\`\`\`
+```
 
 **Features:**
 - Individual letter animations
@@ -65,13 +65,13 @@ import { TextReveal } from '@/components/animations/TextReveal'
 ### 4. ParallaxSection
 Scroll-based parallax animations with opacity transitions.
 
-\`\`\`tsx
+```tsx
 import { ParallaxSection } from '@/components/animations/ParallaxSection'
 
 <ParallaxSection speed={0.3} direction="up">
   <YourContent />
 </ParallaxSection>
-\`\`\`
+```
 
 **Features:**
 - Scroll-triggered animations
@@ -82,7 +82,7 @@ import { ParallaxSection } from '@/components/animations/ParallaxSection'
 ### 5. AnimatedCounter
 Smooth number counting animations with spring physics.
 
-\`\`\`tsx
+```tsx
 import { AnimatedCounter } from '@/components/animations/AnimatedCounter'
 
 <AnimatedCounter 
@@ -90,7 +90,7 @@ import { AnimatedCounter } from '@/components/animations/AnimatedCounter'
   duration={1.5}
   suffix=" tasks completed"
 />
-\`\`\`
+```
 
 **Features:**
 - Spring-based counting
@@ -101,7 +101,7 @@ import { AnimatedCounter } from '@/components/animations/AnimatedCounter'
 ## Implementation Patterns
 
 ### Page-Level Animations
-\`\`\`tsx
+```tsx
 // Staggered container animations
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -122,10 +122,10 @@ const itemVariants = {
     transition: { duration: 0.5 }
   }
 }
-\`\`\`
+```
 
 ### Interactive Animations
-\`\`\`tsx
+```tsx
 // Button with micro-interactions
 <motion.button
   whileHover={{ scale: 1.05, y: -2 }}
@@ -134,10 +134,10 @@ const itemVariants = {
 >
   Click me
 </motion.button>
-\`\`\`
+```
 
 ### Layout Animations
-\`\`\`tsx
+```tsx
 // Automatic layout animations for dynamic content
 <motion.div layout layoutId="unique-id">
   {items.map(item => (
@@ -152,7 +152,7 @@ const itemVariants = {
     </motion.div>
   ))}
 </motion.div>
-\`\`\`
+```
 
 ## Performance Considerations
 
@@ -163,7 +163,7 @@ const itemVariants = {
 - Implement proper cleanup in useEffect hooks
 
 ### 2. Reduced Motion Support
-\`\`\`tsx
+```tsx
 const prefersReducedMotion = useReducedMotion()
 
 const variants = {
@@ -174,10 +174,10 @@ const variants = {
     transition: { duration: prefersReducedMotion ? 0 : 0.5 }
   }
 }
-\`\`\`
+```
 
 ### 3. Conditional Animations
-\`\`\`tsx
+```tsx
 // Only animate on larger screens
 const shouldAnimate = useMediaQuery('(min-width: 768px)')
 
@@ -187,7 +187,7 @@ const shouldAnimate = useMediaQuery('(min-width: 768px)')
 >
   Content
 </motion.div>
-\`\`\`
+```
 
 ## Integration with Journal App
 
@@ -209,7 +209,7 @@ Add ParallaxSection to create depth and visual interest during scrolling.
 ## Custom Animation Hooks
 
 ### useStaggeredAnimation
-\`\`\`tsx
+```tsx
 export function useStaggeredAnimation(items: any[], delay = 0.1) {
   return {
     container: {
@@ -232,10 +232,10 @@ export function useStaggeredAnimation(items: any[], delay = 0.1) {
     }
   }
 }
-\`\`\`
+```
 
 ### useScrollAnimation
-\`\`\`tsx
+```tsx
 export function useScrollAnimation() {
   const { scrollYProgress } = useScroll()
   
@@ -244,7 +244,7 @@ export function useScrollAnimation() {
   
   return { scaleX, opacity, scrollYProgress }
 }
-\`\`\`
+```
 
 ## Testing Animations
 
@@ -289,6 +289,6 @@ export function useScrollAnimation() {
 - Chrome DevTools Performance
 - Framer Motion DevTools
 - GSAP DevTools (GSDevTools)
-\`\`\`
+```
 
-\`\`\`css file="" isHidden
+```css file="" isHidden

@@ -6,15 +6,15 @@ The Daily Journal & Reflection App is built as a single-page application (SPA) u
 
 ## 📊 Data Flow Architecture
 
-\`\`\`
+```
 User Input → Component State → Local Storage → Analytics Processing → UI Updates
      ↓              ↓              ↓                    ↓              ↓
 Form Fields → useState/useEffect → localStorage → Computed Stats → Re-render
-\`\`\`
+```
 
 ## 🗂 File Structure
 
-\`\`\`
+```
 app/
 ├── page.tsx                 # Main journal interface
 ├── layout.tsx              # Root layout with theme provider
@@ -35,7 +35,7 @@ docs/                       # Documentation
 
 lib/
 └── utils.ts               # Utility functions
-\`\`\`
+```
 
 ## 🎨 Design System Architecture
 
@@ -46,7 +46,7 @@ lib/
 - **Semantic Colors**: Success, warning, destructive states
 
 ### Component Hierarchy
-\`\`\`
+```
 Page Level (app/page.tsx)
 ├── Layout Components (Header, Theme Toggle)
 ├── Section Components (Cards for different journal areas)
@@ -57,12 +57,12 @@ Page Level (app/page.tsx)
 │   ├── Analytics Section
 │   └── Goals Section
 └── Utility Components (StarRating, TodoItem, etc.)
-\`\`\`
+```
 
 ## 💾 Data Management
 
 ### Data Structure
-\`\`\`typescript
+```typescript
 interface JournalEntry {
   date: string              // ISO date string
   timestamp: string         // Human-readable timestamp
@@ -86,7 +86,7 @@ interface JournalEntry {
   tomorrowGoals: string    // Next day priorities
   affirmation: string      // Daily affirmation
 }
-\`\`\`
+```
 
 ### Storage Strategy
 - **Primary Storage**: Browser localStorage

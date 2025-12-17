@@ -14,7 +14,7 @@ This guide outlines the systematic approach to designing, structuring, and organ
 - Compose multiple section components
 - Manage page-level animations and transitions
 
-\`\`\`typescript
+```typescript
 // Example: app/page.tsx
 export default function DailyJournal() {
   // State management
@@ -31,7 +31,7 @@ export default function DailyJournal() {
     </motion.div>
   )
 }
-\`\`\`
+```
 
 ### 2. Section Components
 **Purpose**: Major functional areas of the application  
@@ -41,7 +41,7 @@ export default function DailyJournal() {
 - Color-coded theming
 - Animation integration
 
-\`\`\`typescript
+```typescript
 // Pattern for section components
 const ProductivitySection = () => {
   return (
@@ -60,7 +60,7 @@ const ProductivitySection = () => {
     </motion.div>
   )
 }
-\`\`\`
+```
 
 ### 3. UI Components
 **Location**: `components/ui/` directory  
@@ -82,7 +82,7 @@ const ProductivitySection = () => {
 ## 🎨 Styling Patterns
 
 ### Glass Morphism Classes
-\`\`\`css
+```css
 .glass-card {
   @apply bg-card/80 backdrop-blur-md border border-border/20;
 }
@@ -94,7 +94,7 @@ const ProductivitySection = () => {
 .glass-success {
   @apply bg-green-500/10 backdrop-blur-md border border-green-500/20;
 }
-\`\`\`
+```
 
 ### Color Coding System
 - **Blue**: Productivity and tasks (`text-blue-400`, `border-blue-500`)
@@ -109,7 +109,7 @@ const ProductivitySection = () => {
 ### Component Animation Patterns
 
 #### 1. Card Entrance Animations
-\`\`\`typescript
+```typescript
 const cardVariants = {
   hidden: { opacity: 0, y: 20, scale: 0.95 },
   visible: { 
@@ -119,10 +119,10 @@ const cardVariants = {
     transition: { duration: 0.5, ease: "easeOut" }
   }
 }
-\`\`\`
+```
 
 #### 2. Stagger Animations for Lists
-\`\`\`typescript
+```typescript
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
@@ -133,10 +133,10 @@ const staggerContainer = {
     }
   }
 }
-\`\`\`
+```
 
 #### 3. Interactive Element Animations
-\`\`\`typescript
+```typescript
 <motion.button
   whileHover={{ scale: 1.05, y: -2 }}
   whileTap={{ scale: 0.95 }}
@@ -144,7 +144,7 @@ const staggerContainer = {
 >
   Button Content
 </motion.button>
-\`\`\`
+```
 
 ## 📝 Component Development Checklist
 
@@ -184,7 +184,7 @@ const staggerContainer = {
 ### 1. Compound Components
 For complex UI elements with multiple parts:
 
-\`\`\`typescript
+```typescript
 const StarRating = {
   Container: ({ children, ...props }) => <div {...props}>{children}</div>,
   Star: ({ filled, onClick }) => <Star className={filled ? "fill-amber-400" : ""} onClick={onClick} />,
@@ -196,12 +196,12 @@ const StarRating = {
   <StarRating.Label>Rating</StarRating.Label>
   <StarRating.Star filled={true} onClick={handleClick} />
 </StarRating.Container>
-\`\`\`
+```
 
 ### 2. Render Props Pattern
 For flexible, reusable logic:
 
-\`\`\`typescript
+```typescript
 const AnimatedList = ({ items, children }) => (
   <motion.div variants={staggerContainer}>
     {items.map((item, index) => 
@@ -218,12 +218,12 @@ const AnimatedList = ({ items, children }) => (
     </motion.div>
   )}
 </AnimatedList>
-\`\`\`
+```
 
 ### 3. Higher-Order Components (HOCs)
 For cross-cutting concerns:
 
-\`\`\`typescript
+```typescript
 const withAnimation = (Component, animationVariants) => {
   return (props) => (
     <motion.div variants={animationVariants}>
@@ -233,7 +233,7 @@ const withAnimation = (Component, animationVariants) => {
 }
 
 const AnimatedCard = withAnimation(Card, cardVariants)
-\`\`\`
+```
 
 ## 📊 Component Testing Strategy
 
@@ -256,7 +256,7 @@ const AnimatedCard = withAnimation(Card, cardVariants)
 ## 🚀 Performance Optimization
 
 ### Memoization Strategy
-\`\`\`typescript
+```typescript
 const ExpensiveComponent = React.memo(({ data, onUpdate }) => {
   const processedData = useMemo(() => 
     expensiveCalculation(data), [data]
@@ -268,7 +268,7 @@ const ExpensiveComponent = React.memo(({ data, onUpdate }) => {
   
   return <div>{/* Component content */}</div>
 })
-\`\`\`
+```
 
 ### Animation Performance
 - Use `transform` and `opacity` for animations

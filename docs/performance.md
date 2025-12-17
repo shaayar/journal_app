@@ -7,7 +7,7 @@ The Daily Journal application prioritizes smooth user experience through strateg
 ## ⚡ React Performance Optimization
 
 ### 1. Component Memoization
-\`\`\`typescript
+```typescript
 // Memoize expensive components
 const ExpensiveAnalytics = React.memo(({ entries, dateRange }) => {
   const processedData = useMemo(() => {
@@ -42,10 +42,10 @@ const TodoList = ({ todos, onToggle, onRemove }) => {
     </div>
   )
 }
-\`\`\`
+```
 
 ### 2. State Optimization
-\`\`\`typescript
+```typescript
 // Avoid unnecessary re-renders by splitting state
 const JournalForm = () => {
   // Split form state to minimize re-renders
@@ -73,10 +73,10 @@ const JournalForm = () => {
     </form>
   )
 }
-\`\`\`
+```
 
 ### 3. Virtual Scrolling for Large Lists
-\`\`\`typescript
+```typescript
 import { FixedSizeList as List } from 'react-window'
 
 const VirtualizedEntryList = ({ entries }) => {
@@ -97,12 +97,12 @@ const VirtualizedEntryList = ({ entries }) => {
     </List>
   )
 }
-\`\`\`
+```
 
 ## 🎭 Animation Performance
 
 ### 1. Hardware Acceleration
-\`\`\`css
+```css
 /* Force hardware acceleration for animated elements */
 .animated-element {
   transform: translateZ(0);
@@ -113,9 +113,9 @@ const VirtualizedEntryList = ({ entries }) => {
 .animation-complete {
   will-change: auto;
 }
-\`\`\`
+```
 
-\`\`\`typescript
+```typescript
 // Programmatically manage will-change
 const AnimatedCard = () => {
   const [isAnimating, setIsAnimating] = useState(false)
@@ -131,10 +131,10 @@ const AnimatedCard = () => {
     </motion.div>
   )
 }
-\`\`\`
+```
 
 ### 2. Animation Batching
-\`\`\`typescript
+```typescript
 // Batch multiple animations together
 const BatchedAnimations = () => {
   const controls = useAnimation()
@@ -155,10 +155,10 @@ const BatchedAnimations = () => {
     </motion.div>
   )
 }
-\`\`\`
+```
 
 ### 3. Conditional Animation Rendering
-\`\`\`typescript
+```typescript
 const ConditionalAnimations = () => {
   const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
   const isLowEndDevice = useMediaQuery('(max-width: 480px)')
@@ -171,12 +171,12 @@ const ConditionalAnimations = () => {
   
   return <AnimatedComponent />
 }
-\`\`\`
+```
 
 ## 📦 Bundle Optimization
 
 ### 1. Code Splitting
-\`\`\`typescript
+```typescript
 // Route-based code splitting
 const LazyAnalytics = lazy(() => import('./components/Analytics'))
 const LazySettings = lazy(() => import('./components/Settings'))
@@ -197,10 +197,10 @@ const App = () => (
 const HeavyChart = lazy(() => 
   import('./HeavyChart').then(module => ({ default: module.HeavyChart }))
 )
-\`\`\`
+```
 
 ### 2. Tree Shaking Optimization
-\`\`\`typescript
+```typescript
 // Import only what you need
 import { motion, AnimatePresence } from 'framer-motion'
 import { Calendar, Star } from 'lucide-react'
@@ -214,10 +214,10 @@ const loadChartLibrary = async () => {
   const { Chart } = await import('chart.js')
   return Chart
 }
-\`\`\`
+```
 
 ### 3. Asset Optimization
-\`\`\`typescript
+```typescript
 // Lazy load images
 const LazyImage = ({ src, alt, ...props }) => {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -255,12 +255,12 @@ const LazyImage = ({ src, alt, ...props }) => {
     </div>
   )
 }
-\`\`\`
+```
 
 ## 💾 Storage Performance
 
 ### 1. Efficient LocalStorage Usage
-\`\`\`typescript
+```typescript
 // Debounced storage updates
 const useDebounceStorage = (key, value, delay = 500) => {
   const debouncedValue = useDebounce(value, delay)
@@ -290,10 +290,10 @@ const storeDataInChunks = (key, data, chunkSize = 1000) => {
     totalItems: data.length
   }))
 }
-\`\`\`
+```
 
 ### 2. Memory Management
-\`\`\`typescript
+```typescript
 // Cleanup heavy objects
 const HeavyComponent = () => {
   const heavyDataRef = useRef(null)
@@ -323,12 +323,12 @@ const getCachedComponent = (key) => {
   componentCache.set(key, component)
   return component
 }
-\`\`\`
+```
 
 ## 📊 Performance Monitoring
 
 ### 1. Performance Metrics
-\`\`\`typescript
+```typescript
 // Custom performance hook
 const usePerformanceMetrics = () => {
   const [metrics, setMetrics] = useState({})
@@ -375,19 +375,19 @@ const ExpensiveComponent = () => {
   
   return <div>Component</div>
 }
-\`\`\`
+```
 
 ### 2. Bundle Analysis
-\`\`\`bash
+```bash
 # Analyze bundle size
 npm run build -- --analyze
 
 # Check for duplicate dependencies
 npx webpack-bundle-analyzer build/static/js/*.js
-\`\`\`
+```
 
 ### 3. Runtime Performance Monitoring
-\`\`\`typescript
+```typescript
 // Monitor component render times
 const withPerformanceMonitoring = (WrappedComponent) => {
   return (props) => {
@@ -405,12 +405,12 @@ const withPerformanceMonitoring = (WrappedComponent) => {
     return <WrappedComponent {...props} />
   }
 }
-\`\`\`
+```
 
 ## 🔧 Development Tools
 
 ### 1. React DevTools Profiler
-\`\`\`typescript
+```typescript
 // Wrap components for profiling
 const ProfiledComponent = ({ children }) => {
   return (
@@ -426,10 +426,10 @@ const ProfiledComponent = ({ children }) => {
     </Profiler>
   )
 }
-\`\`\`
+```
 
 ### 2. Performance Budget
-\`\`\`javascript
+```javascript
 // webpack.config.js
 module.exports = {
   performance: {
@@ -438,12 +438,12 @@ module.exports = {
     hints: 'warning'
   }
 }
-\`\`\`
+```
 
 ## 📱 Mobile Performance
 
 ### 1. Touch Optimization
-\`\`\`css
+```css
 /* Improve touch responsiveness */
 .touch-element {
   touch-action: manipulation;
@@ -455,10 +455,10 @@ module.exports = {
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
 }
-\`\`\`
+```
 
 ### 2. Viewport Optimization
-\`\`\`typescript
+```typescript
 // Optimize for mobile viewports
 const MobileOptimized = () => {
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight)
@@ -478,6 +478,6 @@ const MobileOptimized = () => {
     </div>
   )
 }
-\`\`\`
+```
 
 This performance optimization guide ensures the journal application remains fast, responsive, and efficient across all devices and usage patterns.

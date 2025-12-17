@@ -21,7 +21,7 @@ The Daily Journal application uses a layered animation system combining Framer M
 ## 🎨 Framer Motion Patterns
 
 ### 1. Basic Animation Variants
-\`\`\`typescript
+```typescript
 // Standard animation variants
 const fadeInUp = {
   hidden: { 
@@ -57,10 +57,10 @@ const fadeInUp = {
 >
   Content
 </motion.div>
-\`\`\`
+```
 
 ### 2. Stagger Animations
-\`\`\`typescript
+```typescript
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
@@ -93,10 +93,10 @@ const staggerItem = {
     </motion.div>
   ))}
 </motion.div>
-\`\`\`
+```
 
 ### 3. Interactive Animations
-\`\`\`typescript
+```typescript
 const interactiveButton = {
   hover: { 
     scale: 1.05, 
@@ -124,10 +124,10 @@ const interactiveButton = {
 >
   Click me
 </motion.button>
-\`\`\`
+```
 
 ### 4. Layout Animations
-\`\`\`typescript
+```typescript
 const TodoItem = ({ todo, onRemove }) => (
   <motion.div
     layout
@@ -151,12 +151,12 @@ const TodoItem = ({ todo, onRemove }) => (
     <TodoItem key={todo.id} todo={todo} onRemove={handleRemove} />
   ))}
 </AnimatePresence>
-\`\`\`
+```
 
 ## ⚡ GSAP Integration
 
 ### 1. Timeline Animations
-\`\`\`typescript
+```typescript
 import { gsap } from 'gsap'
 import { useRef, useEffect } from 'react'
 
@@ -209,10 +209,10 @@ const ComplexAnimation = () => {
     </div>
   )
 }
-\`\`\`
+```
 
 ### 2. Scroll-Triggered Animations
-\`\`\`typescript
+```typescript
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -244,10 +244,10 @@ const ScrollAnimation = () => {
   
   return <div ref={sectionRef}>Scroll-triggered content</div>
 }
-\`\`\`
+```
 
 ### 3. Morphing Animations
-\`\`\`typescript
+```typescript
 const MorphingShape = () => {
   const shapeRef = useRef<HTMLDivElement>(null)
   
@@ -280,12 +280,12 @@ const MorphingShape = () => {
     />
   )
 }
-\`\`\`
+```
 
 ## 🎯 Animation Patterns Library
 
 ### 1. Card Entrance Animations
-\`\`\`typescript
+```typescript
 export const cardAnimations = {
   slideInLeft: {
     hidden: { opacity: 0, x: -50 },
@@ -321,10 +321,10 @@ export const cardAnimations = {
     }
   }
 }
-\`\`\`
+```
 
 ### 2. Loading Animations
-\`\`\`typescript
+```typescript
 export const loadingAnimations = {
   pulse: {
     scale: [1, 1.05, 1],
@@ -353,10 +353,10 @@ export const loadingAnimations = {
     }
   }
 }
-\`\`\`
+```
 
 ### 3. Notification Animations
-\`\`\`typescript
+```typescript
 export const notificationAnimations = {
   slideInFromTop: {
     initial: { opacity: 0, y: -50, scale: 0.9 },
@@ -396,12 +396,12 @@ export const notificationAnimations = {
     }
   }
 }
-\`\`\`
+```
 
 ## 🔧 Performance Optimization
 
 ### 1. Animation Performance Best Practices
-\`\`\`typescript
+```typescript
 // Use transform and opacity for best performance
 const optimizedAnimation = {
   hidden: { 
@@ -426,10 +426,10 @@ const useThis = {
   hidden: { opacity: 0, scaleX: 0, scaleY: 0 },
   visible: { opacity: 1, scaleX: 1, scaleY: 1 }
 }
-\`\`\`
+```
 
 ### 2. Conditional Animation Rendering
-\`\`\`typescript
+```typescript
 const ConditionalAnimation = ({ shouldAnimate, children }) => {
   if (!shouldAnimate) {
     return <div>{children}</div>
@@ -445,10 +445,10 @@ const ConditionalAnimation = ({ shouldAnimate, children }) => {
     </motion.div>
   )
 }
-\`\`\`
+```
 
 ### 3. Animation Cleanup
-\`\`\`typescript
+```typescript
 const AnimatedComponent = () => {
   const animationRef = useRef<gsap.core.Timeline>()
   
@@ -469,12 +469,12 @@ const AnimatedComponent = () => {
   
   return <div className="element">Animated content</div>
 }
-\`\`\`
+```
 
 ## 🎨 Theme-Aware Animations
 
 ### 1. Dark/Light Mode Transitions
-\`\`\`typescript
+```typescript
 const ThemeTransition = ({ isDark }) => {
   return (
     <motion.div
@@ -488,10 +488,10 @@ const ThemeTransition = ({ isDark }) => {
     </motion.div>
   )
 }
-\`\`\`
+```
 
 ### 2. Color Morphing
-\`\`\`typescript
+```typescript
 const ColorMorphing = ({ mood }) => {
   const moodColors = {
     happy: "#10b981",
@@ -510,12 +510,12 @@ const ColorMorphing = ({ mood }) => {
     />
   )
 }
-\`\`\`
+```
 
 ## 📱 Responsive Animation Patterns
 
 ### 1. Mobile-Optimized Animations
-\`\`\`typescript
+```typescript
 const ResponsiveAnimation = () => {
   const isMobile = useMediaQuery('(max-width: 768px)')
   
@@ -542,10 +542,10 @@ const ResponsiveAnimation = () => {
     </motion.div>
   )
 }
-\`\`\`
+```
 
 ### 2. Reduced Motion Support
-\`\`\`typescript
+```typescript
 const AccessibleAnimation = ({ children }) => {
   const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
   
@@ -563,12 +563,12 @@ const AccessibleAnimation = ({ children }) => {
     </motion.div>
   )
 }
-\`\`\`
+```
 
 ## 🚀 Advanced Animation Techniques
 
 ### 1. Physics-Based Animations
-\`\`\`typescript
+```typescript
 const PhysicsAnimation = () => {
   return (
     <motion.div
@@ -580,10 +580,10 @@ const PhysicsAnimation = () => {
     />
   )
 }
-\`\`\`
+```
 
 ### 2. Path Animations
-\`\`\`typescript
+```typescript
 const PathAnimation = () => {
   return (
     <motion.div
@@ -600,10 +600,10 @@ const PathAnimation = () => {
     />
   )
 }
-\`\`\`
+```
 
 ### 3. Gesture-Based Animations
-\`\`\`typescript
+```typescript
 const GestureAnimation = () => {
   const [isOpen, setIsOpen] = useState(false)
   
@@ -623,6 +623,6 @@ const GestureAnimation = () => {
     />
   )
 }
-\`\`\`
+```
 
 This comprehensive animation system provides the foundation for creating engaging, performant, and accessible animations throughout the journal application.
