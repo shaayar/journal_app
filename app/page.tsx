@@ -331,7 +331,7 @@ export default function DailyJournal() {
 
         {/* Data Management Card */}
         <div className="glass-card border-l-4 border-l-red-500 animate-in slide-in-from-bottom duration-1000 delay-200 rounded-lg pb-2">
-          <CardHeader className="pb-6">
+          <CardHeader className="pb-6 pt-2">
             <CardTitle className="flex items-center gap-2 text-red-400">
               <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
               Data Management
@@ -355,7 +355,7 @@ export default function DailyJournal() {
                   disabled={savedEntries.length === 0}
                   className="w-full bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white border-0 shadow-lg shadow-green-500/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed py-4 hover:scale-105"
                 >
-                  <Download className="w-4 h-4 mr-2" />
+                    <Upload className="w-4 h-4 mr-2" />                  
                   Export Data
                 </Button>
                 <p className="text-xs text-muted-foreground text-center px-2">Download your entries as JSON</p>
@@ -367,7 +367,8 @@ export default function DailyJournal() {
                     as="div"
                     className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white border-0 shadow-lg shadow-blue-500/25 transition-all duration-200 cursor-pointer py-4 hover:scale-105"
                   >
-                    <Upload className="w-4 h-4 mr-2" />
+                    <Download className="w-4 h-4 mr-2" />
+
                     Import Data
                   </Button>
                   <input type="file" accept=".json" onChange={importData} className="hidden" />
@@ -665,7 +666,7 @@ export default function DailyJournal() {
               </div>
 
               {/* Accomplishments */}
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <label className="text-sm font-medium flex items-center gap-2 text-blue-400">
                   <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" style={{ animationDelay: "2s" }} />
                   Daily Accomplishments
